@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2021 The LineageOS Project
+# Copyright (C) 2021 The Arcana Project
 #
 # SPDX-License-Identifier: Apache-2.0
 #
@@ -11,11 +11,17 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 # Inherit from mojito device
 $(call inherit-product, device/xiaomi/mojito/device.mk)
 
-# Inherit some LineageOS stuffs
-$(call inherit-product, vendor/fluid/config/common_full_phone.mk)
+# Inherit some ProjectArcana stuffs
+$(call inherit-product, vendor/aosp/config/common.mk)
+
+ARCANA_OFFICIAL := true
+ARCANA_DEVICE := mojito
+ARCANA_MAINTAINER := blur
+TARGET_BOOT_ANIMATION_RES := 1080
+WITH_GAPPS := true
 
 # Device identifier. This must come after all inclusions.
-PRODUCT_NAME := fluid_mojito
+PRODUCT_NAME := aosp_mojito
 PRODUCT_DEVICE := mojito
 PRODUCT_BRAND := Redmi
 PRODUCT_MODEL := Redmi Note 10
@@ -30,9 +36,3 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
 
 BUILD_FINGERPRINT :="google/redfin/redfin:12/SP1A.211105.003/7757856:user/release-keys"
 
-# #Gapps
-# TARGET_GAPPS_ARCH = arm64
-#
-# # OFFICIAL SPICEOS Build
-#
-# SPICEOS_BUILDTYPE = OFFICIAL
